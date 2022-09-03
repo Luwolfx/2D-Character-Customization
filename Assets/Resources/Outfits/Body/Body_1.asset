@@ -16,5 +16,6 @@ MonoBehaviour:
     icon:
     - {fileID: 21300148, guid: e48ddf4fb7304ce4ab48711eb6617a57, type: 3}
     outfitName: Scars
+    price: 25
   outfitId: 1
   showPants: 0

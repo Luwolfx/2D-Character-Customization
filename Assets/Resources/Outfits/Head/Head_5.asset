@@ -16,4 +16,5 @@ MonoBehaviour:
     icon:
     - {fileID: 21300018, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
     outfitName: Squid Hat
+    price: 50
   hatOutfitId: 5

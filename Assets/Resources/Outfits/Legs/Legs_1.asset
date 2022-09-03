@@ -17,4 +17,5 @@ MonoBehaviour:
     - {fileID: 21300170, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
     - {fileID: 21300170, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
     outfitName: "P\xEDrate Shoes"
+    price: 0
   outfitId: 1

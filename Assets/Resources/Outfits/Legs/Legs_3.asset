@@ -17,4 +17,5 @@ MonoBehaviour:
     - {fileID: 21300102, guid: f5f1c19ce87450f4b97f8b363746558d, type: 3}
     - {fileID: 21300102, guid: f5f1c19ce87450f4b97f8b363746558d, type: 3}
     outfitName: Dark Iron Shoes
+    price: 50
   outfitId: 3

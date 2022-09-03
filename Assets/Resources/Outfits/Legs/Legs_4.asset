@@ -17,4 +17,5 @@ MonoBehaviour:
     - {fileID: 21300104, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
     - {fileID: 21300104, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
     outfitName: Skeleton Shoes
+    price: 100
   outfitId: 4

@@ -16,4 +16,5 @@ MonoBehaviour:
     icon:
     - {fileID: 21300020, guid: e48ddf4fb7304ce4ab48711eb6617a57, type: 3}
     outfitName: Mohawk Hair
+    price: 0
   hatOutfitId: 3

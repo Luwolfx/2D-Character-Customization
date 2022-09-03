@@ -16,5 +16,6 @@ MonoBehaviour:
     icon:
     - {fileID: 21300070, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
     outfitName: Two Color T-Shirt
+    price: 75
   outfitId: 10
   showPants: 1

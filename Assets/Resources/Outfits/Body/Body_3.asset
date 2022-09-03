@@ -16,5 +16,6 @@ MonoBehaviour:
     icon:
     - {fileID: 21300056, guid: e48ddf4fb7304ce4ab48711eb6617a57, type: 3}
     outfitName: Mummy Shirt
+    price: 50
   outfitId: 3
   showPants: 1

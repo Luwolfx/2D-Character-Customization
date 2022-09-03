@@ -16,4 +16,5 @@ MonoBehaviour:
     icon:
     - {fileID: 21300032, guid: f5f1c19ce87450f4b97f8b363746558d, type: 3}
     outfitName: Thor Hat
+    price: 1000
   hatOutfitId: 10

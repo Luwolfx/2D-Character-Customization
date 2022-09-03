@@ -16,4 +16,5 @@ MonoBehaviour:
     icon:
     - {fileID: 21300020, guid: f5f1c19ce87450f4b97f8b363746558d, type: 3}
     outfitName: Viking Cask
+    price: 75
   hatOutfitId: 8
