@@ -18,5 +18,6 @@ MonoBehaviour:
     - {fileID: 21300178, guid: f5f1c19ce87450f4b97f8b363746558d, type: 3}
     outfitName: Dark Hands
     price: 200
+  outfitId: 2
   rightHandOutfitId: 2
   leftHandOutfitId: 2

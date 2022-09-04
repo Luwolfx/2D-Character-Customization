@@ -17,4 +17,4 @@ MonoBehaviour:
     - {fileID: 21300122, guid: e48ddf4fb7304ce4ab48711eb6617a57, type: 3}
     outfitName: Brown Beret
     price: 0
-  hatOutfitId: 2
+  outfitId: 2

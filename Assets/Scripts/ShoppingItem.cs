@@ -11,8 +11,14 @@ public class ShoppingItem : MonoBehaviour
     public ScriptableObject item;
     public OutfitInformation itemInfo;
     public Image itemImage;
+    public Image itemImage2;
     public TMP_Text itemNameText;
     public ShoppingBuy buy;
+
+    [Header("Background Selector")]
+    public Image background;
+    public Color normalColor;
+    public Color selectedColor;
 
     public ShoppingListArea actualCategory => transform.parent.parent.gameObject.GetComponent<ShoppingListArea>();
 
@@ -32,12 +38,16 @@ public class ShoppingItem : MonoBehaviour
         if(itemInfo != null)
         {
             itemImage.sprite = itemInfo.icon[0];
+            if(itemInfo.icon.Count > 1) itemImage2.sprite = itemInfo.icon[1];
             itemNameText.text = itemInfo.outfitName;
 
             if(itemInfo.buyed)
             {
                 buy.buyBlocker.SetActive(false);
                 GetComponent<Button>().interactable = true;
+
+                if(GameController.IsEquiped(item))
+                    background.color = selectedColor;
             }
             else
             {
@@ -65,6 +75,24 @@ public class ShoppingItem : MonoBehaviour
         }
         else
         {
+            actualCategory.shoppingList.SetMessage("Failed to buy item!", result);
+        }
+    }
+
+    public void EquipItem()
+    {
+        GameController.EquipItem(item, ItemEquipResponse);
+    }
+
+    void ItemEquipResponse(bool success, string result)
+    {
+        if(success)
+        {
+            actualCategory.shoppingList.UpdateSelectedItems();
+        }
+        else
+        {
+            background.color = normalColor;
             actualCategory.shoppingList.SetMessage("Failed to buy item!", result);
         }
     }

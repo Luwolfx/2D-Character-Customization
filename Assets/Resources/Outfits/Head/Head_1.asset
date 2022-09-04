@@ -17,4 +17,4 @@ MonoBehaviour:
     - {fileID: 21300030, guid: e48ddf4fb7304ce4ab48711eb6617a57, type: 3}
     outfitName: Brown Hood
     price: 0
-  hatOutfitId: 1
+  outfitId: 1

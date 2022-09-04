@@ -15,9 +15,6 @@ public class ShoppingListArea : MonoBehaviour
     public Transform areaListContent;
     public GameObject itemPrefab;
 
-    [Header("Items found")]
-    public List<ScriptableObject> items = new List<ScriptableObject>();
-
 
     public async Task SetupArea(string name)
     {
@@ -26,21 +23,28 @@ public class ShoppingListArea : MonoBehaviour
 
         List<Object> itemsObj =  new List<Object>( Resources.LoadAll("Outfits/"+areaName, typeof(ScriptableObject)) );
 
-        foreach(Object item in itemsObj)
-        {
-            items.Add((ScriptableObject) item );
-        }
-
         int instantiatedNumber = 1;
-
-        foreach(ScriptableObject item in items)
+        
+        foreach(Object item in itemsObj)
         {
             GameObject instantiated = Instantiate(itemPrefab, areaListContent);
 
             instantiated.name = "Item_"+instantiatedNumber;
-            await instantiated.GetComponent<ShoppingItem>().SetupItem(item);
+            await instantiated.GetComponent<ShoppingItem>().SetupItem((ScriptableObject) item);
 
             instantiatedNumber++;
+        }
+    }
+
+    public void ResetSelected()
+    {
+        foreach(Transform item in areaListContent)
+        {
+            ShoppingItem shopItem = item.GetComponent<ShoppingItem>();
+            if(GameController.IsEquiped(shopItem.item))
+                shopItem.background.color = shopItem.selectedColor;
+            else
+                shopItem.background.color = shopItem.normalColor;
         }
     }
 }

@@ -9,6 +9,7 @@ public class Hands : ScriptableObject
     public OutfitInformation info;
 
     [Header("Outfit Values")]
+    public int outfitId = -1;
     public int rightHandOutfitId = -1;
     public int leftHandOutfitId = -1;
 }

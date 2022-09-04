@@ -17,4 +17,4 @@ MonoBehaviour:
     - {fileID: 21300000, guid: 1013008592ce6a74582948d1b9be6e92, type: 3}
     outfitName: Remove Hat
     price: 0
-  hatOutfitId: 0
+  outfitId: 0

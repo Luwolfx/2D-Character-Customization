@@ -9,5 +9,5 @@ public class Head : ScriptableObject
     public OutfitInformation info;
 
     [Header("Outfit Values")]
-    public int hatOutfitId = -1;
+    public int outfitId = -1;
 }

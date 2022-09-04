@@ -18,5 +18,6 @@ MonoBehaviour:
     - {fileID: 21300154, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
     outfitName: Blue Hands
     price: 100
+  outfitId: 1
   rightHandOutfitId: 1
   leftHandOutfitId: 1

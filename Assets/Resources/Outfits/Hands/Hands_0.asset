@@ -17,5 +17,7 @@ MonoBehaviour:
     - {fileID: 21300048, guid: e48ddf4fb7304ce4ab48711eb6617a57, type: 3}
     - {fileID: 21300058, guid: e48ddf4fb7304ce4ab48711eb6617a57, type: 3}
     outfitName: Normal Hands
+    price: 0
+  outfitId: 0
   rightHandOutfitId: 0
   leftHandOutfitId: 0

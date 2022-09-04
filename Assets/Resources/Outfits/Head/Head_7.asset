@@ -17,4 +17,4 @@ MonoBehaviour:
     - {fileID: 21300028, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
     outfitName: Squid Hood
     price: 50
-  hatOutfitId: 7
+  outfitId: 7

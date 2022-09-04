@@ -17,4 +17,4 @@ MonoBehaviour:
     - {fileID: 21300022, guid: 5cf1b4629c7cb104e98d369448084abd, type: 3}
     outfitName: Pirate Hat #2
     price: 25
-  hatOutfitId: 6
+  outfitId: 6
