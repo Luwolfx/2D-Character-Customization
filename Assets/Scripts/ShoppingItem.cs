@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 public class ShoppingItem : MonoBehaviour
 {
+    [Header("Item Objects")]
     public ScriptableObject item;
     public OutfitInformation itemInfo;
-
     public Image itemImage;
     public TMP_Text itemNameText;
     public ShoppingBuy buy;
 
+    public ShoppingListArea actualCategory => transform.parent.parent.gameObject.GetComponent<ShoppingListArea>();
 
     public async Task SetupItem(ScriptableObject itemObject)
     {
@@ -46,5 +47,25 @@ public class ShoppingItem : MonoBehaviour
         else
             Destroy(gameObject);
 
+    }
+
+    public void BuyItem()
+    {
+        GameController.BuyItem(itemInfo.outfitName, itemInfo.price, ItemBuyResponse);
+    }
+
+    void ItemBuyResponse(bool success, string result)
+    {
+        if(success)
+        {
+            buy.buyBlocker.SetActive(false);
+            GetComponent<Button>().interactable = true;
+            actualCategory.shoppingList.SetMessage("Successfully bought item!", result);
+            actualCategory.shoppingList.UpdatePlayerCoins();
+        }
+        else
+        {
+            actualCategory.shoppingList.SetMessage("Failed to buy item!", result);
+        }
     }
 }

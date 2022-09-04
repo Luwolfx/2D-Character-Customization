@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ShoppingList : MonoBehaviour
 {
     [Header("Shoppping Objects")]
     public Transform shoppingContent;
     public GameObject shoppingAreaPrefab;
+    public TMP_Text coinsText;
+
+    public GameObject messagePopup;
+    public TMP_Text messagePopupTitleText;
+    public TMP_Text messagePopupText;
 
     [Header("Shopping Item Types")]
     public List<string> itemTypes = new List<string>();
+
 
 
     void Start()
@@ -19,6 +26,8 @@ public class ShoppingList : MonoBehaviour
 
     async void SetupShopping()
     {
+        UpdatePlayerCoins();
+
         int instantiatedNumber = 1;
         foreach(string type in itemTypes)
         {
@@ -29,5 +38,17 @@ public class ShoppingList : MonoBehaviour
 
             instantiatedNumber++;
         }
+    }
+
+    public void UpdatePlayerCoins()
+    {
+        coinsText.text = "" + GameController.playerCoins;
+    }
+
+    public void SetMessage(string title, string message)
+    {
+        messagePopup.SetActive(true);
+        messagePopupTitleText.text = title;
+        messagePopupText.text = message;
     }
 }

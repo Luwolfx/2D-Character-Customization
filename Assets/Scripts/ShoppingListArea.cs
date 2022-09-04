@@ -9,6 +9,7 @@ public class ShoppingListArea : MonoBehaviour
     [Header("Item List Information")]
     public string areaName;
     public TMP_Text areaNameText;
+    public ShoppingList shoppingList => transform.parent.parent.parent.parent.gameObject.GetComponent<ShoppingList>();
 
     [Header("Item List Objects")]
     public Transform areaListContent;
@@ -23,10 +24,7 @@ public class ShoppingListArea : MonoBehaviour
         areaName = name;
         areaNameText.text = name+":";
 
-        print("SEARCHING > Outfits/"+areaName);
-
         List<Object> itemsObj =  new List<Object>( Resources.LoadAll("Outfits/"+areaName, typeof(ScriptableObject)) );
-        print("Objects found: "+itemsObj.Count);
 
         foreach(Object item in itemsObj)
         {
