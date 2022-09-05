@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Test Scenes/OutfitChangeTest.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: 35966b718a7e897458b3ddbfb5da0af8
+  - enabled: 1
+    path: Assets/Scenes/Game.unity
+    guid: 730c9ad2c449d0b4d984e2f01a07b403
   m_configObjects: {}

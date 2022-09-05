@@ -205,4 +205,15 @@ public static class GameController
         return false;
     }
 
+    public static async Task DeleteSaves()
+    {
+        PlayerPrefs.DeleteAll();
+
+        if(System.IO.File.Exists(Application.persistentDataPath + "/Save/ItemsData.json"))
+            System.IO.File.Delete(Application.persistentDataPath + "/Save/ItemsData.json");
+        
+        itemsEquiped = new ItemsEquiped();
+        await LoadItemsData();
+    }
+
 }
