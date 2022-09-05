@@ -19,3 +19,5 @@ MonoBehaviour:
     outfitName: Iron Shoes
     price: 25
   outfitId: 2
+  rightLegOutfitId: 2
+  leftLegOutfitId: 2

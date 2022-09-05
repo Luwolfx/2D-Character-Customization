@@ -19,3 +19,5 @@ MonoBehaviour:
     outfitName: Dark Iron Shoes
     price: 50
   outfitId: 3
+  rightLegOutfitId: 3
+  leftLegOutfitId: 3

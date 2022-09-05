@@ -17,4 +17,7 @@ MonoBehaviour:
     - {fileID: 21300082, guid: e48ddf4fb7304ce4ab48711eb6617a57, type: 3}
     - {fileID: 21300082, guid: e48ddf4fb7304ce4ab48711eb6617a57, type: 3}
     outfitName: Normal Legs
+    price: 0
   outfitId: 0
+  rightLegOutfitId: 0
+  leftLegOutfitId: 0

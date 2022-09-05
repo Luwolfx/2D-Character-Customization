@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 885242926806872860}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,6 +235,13 @@ MonoBehaviour:
   canInteract: 1
   nearInteractionObject: {fileID: 0}
   interactionIcon: {fileID: 2081890689827490126}
+  head: {fileID: 665206530157229122}
+  body: {fileID: 8825320883081106611}
+  leftHand: {fileID: 8825329644197333825}
+  rightHand: {fileID: 8825374053214377593}
+  pants: {fileID: 8825167424477654297}
+  leftLeg: {fileID: 8825262814385610281}
+  rightLeg: {fileID: 8825383035753078807}
 --- !u!1 &665206530437213080
 GameObject:
   m_ObjectHideFlags: 0

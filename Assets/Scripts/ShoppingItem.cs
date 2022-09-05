@@ -12,6 +12,8 @@ public class ShoppingItem : MonoBehaviour
     public OutfitInformation itemInfo;
     public Image itemImage;
     public Image itemImage2;
+    public Button sellButton;
+    public GameObject pantsIncludedIcon;
     public TMP_Text itemNameText;
     public ShoppingBuy buy;
 
@@ -28,7 +30,10 @@ public class ShoppingItem : MonoBehaviour
 
         switch(item)
         {
-            case Body: itemInfo = ((Body)item).info; break;
+            case Body: 
+                itemInfo = ((Body)item).info; 
+                if(!((Body)item).showPants) pantsIncludedIcon.SetActive(true); 
+                break;
             case Head: itemInfo = ((Head)item).info; break;
             case Hands: itemInfo = ((Hands)item).info; break;
             case Pants: itemInfo = ((Pants)item).info; break;
@@ -45,6 +50,7 @@ public class ShoppingItem : MonoBehaviour
             {
                 buy.buyBlocker.SetActive(false);
                 GetComponent<Button>().interactable = true;
+                if(itemInfo.price > 0) sellButton.gameObject.SetActive(true);
 
                 if(GameController.IsEquiped(item))
                     background.color = selectedColor;
@@ -70,12 +76,35 @@ public class ShoppingItem : MonoBehaviour
         {
             buy.buyBlocker.SetActive(false);
             GetComponent<Button>().interactable = true;
+            if(itemInfo.price > 0) sellButton.gameObject.SetActive(true);
             actualCategory.shoppingList.SetMessage("Successfully bought item!", result);
             actualCategory.shoppingList.UpdatePlayerCoins();
         }
         else
         {
             actualCategory.shoppingList.SetMessage("Failed to buy item!", result);
+        }
+    }
+
+    public void SellItem()
+    {
+        GameController.SellItem(itemInfo.outfitName, itemInfo.price, ItemSellResponse);
+    }
+
+    void ItemSellResponse(bool success, string result)
+    {
+        if(success)
+        {
+            sellButton.gameObject.SetActive(false);
+            buy.buyText.text = "BUY:\n"+itemInfo.price+" COINS";
+            buy.buyBlocker.SetActive(true);
+            GetComponent<Button>().interactable = false;
+            actualCategory.shoppingList.UpdatePlayerCoins();
+            actualCategory.shoppingList.UpdateSelectedItems();
+        }
+        else
+        {
+            actualCategory.shoppingList.SetMessage("Failed to sell item!", result);
         }
     }
 

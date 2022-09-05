@@ -19,3 +19,5 @@ MonoBehaviour:
     outfitName: "P\xEDrate Shoes"
     price: 0
   outfitId: 1
+  rightLegOutfitId: 1
+  leftLegOutfitId: 1

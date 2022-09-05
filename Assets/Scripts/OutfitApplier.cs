@@ -34,6 +34,9 @@ public class OutfitApplier : MonoBehaviour
 
     public void SetOutfit(int id)
     {
-        bodyPart.sprite = outfits[id];
+        if(id < 0)
+            bodyPart.sprite = outfits[0];
+        else
+            bodyPart.sprite = outfits[id];
     }
 }

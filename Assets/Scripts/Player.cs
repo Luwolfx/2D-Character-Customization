@@ -17,6 +17,15 @@ public class Player : MonoBehaviour
     public bool interactionCooldown => ((Time.time-lastInteraction) > 1);
     float lastInteraction = 0f;
 
+    [Header("Player Outfit")]
+    public OutfitApplier head;
+    public OutfitApplier body;
+    public OutfitApplier leftHand;
+    public OutfitApplier rightHand;
+    public OutfitApplier pants;
+    public OutfitApplier leftLeg;
+    public OutfitApplier rightLeg;
+
 
     Rigidbody2D rb;
     Animator anim;
@@ -25,6 +34,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = transform.GetChild(0).GetComponent<Animator>();
+        UpdateEquipedItems();
     }
 
     void Update() 
@@ -118,6 +128,22 @@ public class Player : MonoBehaviour
     public void ToogleInteractive(bool canInteract)
     {
         this.canInteract = canInteract;
+    }
+
+    public async void UpdateEquipedItems()
+    {
+        if(!GameController.itemsEquiped.loadedItems)
+            await GameController.LoadItemsData();
+
+        ItemsEquiped equipedItems = GameController.itemsEquiped;
+
+        head.SetOutfit(equipedItems.head.outfitId);
+        body.SetOutfit(equipedItems.body.outfitId);
+        leftHand.SetOutfit(equipedItems.hands.leftHandOutfitId);
+        rightHand.SetOutfit(equipedItems.hands.rightHandOutfitId);
+        if(equipedItems.pants != null) pants.SetOutfit(equipedItems.pants.outfitId); else pants.SetOutfit(0);
+        leftLeg.SetOutfit(equipedItems.legs.leftLegOutfitId);
+        rightLeg.SetOutfit(equipedItems.legs.rightLegOutfitId);
     }
 
 }

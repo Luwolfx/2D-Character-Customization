@@ -10,9 +10,6 @@ public class ShoppingList : MonoBehaviour
     public GameObject shoppingAreaPrefab;
     public TMP_Text coinsText;
 
-    public ItemsEquiped equiped = GameController.itemsEquiped;
-    public bool updateEquiped;
-
     [Header("Message Popup")]
     public GameObject messagePopup;
     public TMP_Text messagePopupTitleText;
@@ -26,21 +23,11 @@ public class ShoppingList : MonoBehaviour
         SetupShopping();
     }
 
-    private void Update() 
-    {
-        if(updateEquiped)
-        {
-            updateEquiped = false;
-            equiped = GameController.itemsEquiped;
-        }   
-    }
-
     async void SetupShopping()
     {
         UpdatePlayerCoins();
         await GameController.LoadItemsData();
 
-        Debug.Log("Shop setup in progress");
 
         int instantiatedNumber = 1;
         foreach(string type in itemTypes)

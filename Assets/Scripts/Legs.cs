@@ -10,4 +10,6 @@ public class Legs : ScriptableObject
 
     [Header("Outfit Values")]
     public int outfitId = -1;
+    public int rightLegOutfitId = -1;
+    public int leftLegOutfitId = -1;
 }

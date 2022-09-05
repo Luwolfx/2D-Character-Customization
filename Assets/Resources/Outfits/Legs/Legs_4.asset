@@ -19,3 +19,5 @@ MonoBehaviour:
     outfitName: Skeleton Shoes
     price: 100
   outfitId: 4
+  rightLegOutfitId: 4
+  leftLegOutfitId: 4

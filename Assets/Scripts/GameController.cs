@@ -31,8 +31,6 @@ public static class GameController
             UpdateEquipedItems();
             return;
         }
-
-        Debug.Log("Save Found!    | Loading Items Saved Data...");
     
         string itemsData = System.IO.File.ReadAllText(Application.persistentDataPath + "/Save/ItemsData.json");
 
@@ -56,6 +54,23 @@ public static class GameController
             PlayerPrefs.SetInt("PlayerCoins", (playerCoins-price));
             PlayerPrefs.SetInt(itemName, 1);
             onItemBuyEventResponse?.Invoke(true, "Item "+itemName+" sucessfully bought!");
+        }
+    }
+
+    private static event Action<bool, string> onItemSellEventResponse;
+    public static async void SellItem(string itemName, int price, Action<bool, string> response)
+    {
+        onItemSellEventResponse = response;
+        if(price == 0)
+            onItemSellEventResponse?.Invoke(false, "Can't sell free items!");
+        else if(PlayerPrefs.GetInt(itemName, 0) == 0)
+            onItemSellEventResponse?.Invoke(false, "You don't have this item!");
+        else
+        {
+            PlayerPrefs.SetInt("PlayerCoins", (playerCoins+price));
+            PlayerPrefs.SetInt(itemName, 0);
+            await LoadItemsData();
+            onItemSellEventResponse?.Invoke(true, "Item "+itemName+" sucessfully sold!");
         }
     }
 
@@ -126,7 +141,8 @@ public static class GameController
 
     static void UpdateEquipedItems()
     {
-        //TODO
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        player.UpdateEquipedItems();
     }
 
     public static bool CheckPurchased(ScriptableObject item)
