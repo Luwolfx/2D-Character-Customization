@@ -53,9 +53,13 @@ public class Player : MonoBehaviour
             transform.GetChild(0).localScale = new Vector3(1f, 1f, 1f);
 
         if(rb.velocity != Vector2.zero)
+        {
             anim.SetBool("Moving", true);
+            anim.SetFloat("MoveSpeed", (Input.GetButton("Run") ? moveSpeed*1.5f : moveSpeed));
+        }
         else
             anim.SetBool("Moving", false);
+
     }
 
     void InteractionController()
@@ -100,7 +104,7 @@ public class Player : MonoBehaviour
 
     void MovementController()
     {
-        rb.velocity = movePosition.normalized * moveSpeed;
+        rb.velocity = movePosition.normalized * (Input.GetButton("Run") ? moveSpeed*1.5f : moveSpeed);
     }
 
     void OnTriggerEnter2D(Collider2D col) 
